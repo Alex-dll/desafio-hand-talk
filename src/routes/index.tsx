@@ -4,9 +4,9 @@ import SignInNavigator from "./SignIn";
 import SignedInNavigator from "./SignedIn";
 
 const Routes: React.FC = () => {
-  const isSignedIn = false;
+  const isSignedIn = true;
 
-  return isSignedIn ? <SignInNavigator /> : <SignedInNavigator />;
+  return isSignedIn ? <SignedInNavigator /> : <SignInNavigator />;
 };
 
 export default Routes;
