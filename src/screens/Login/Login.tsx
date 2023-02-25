@@ -1,7 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import { View, Text, SafeAreaView, Image } from "react-native";
+import { View, SafeAreaView, Image } from "react-native";
 
 import styles from "./styles";
 import { schemaLogin } from "./validation";
@@ -18,7 +18,6 @@ export default function Login() {
     setValue,
     formState: { errors },
   } = useForm({
-    mode: "all",
     resolver: yupResolver(schemaLogin),
     defaultValues: {
       email: "",
