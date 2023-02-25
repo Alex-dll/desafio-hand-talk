@@ -4,7 +4,7 @@ import SignInNavigator from "./SignIn";
 import SignedInNavigator from "./SignedIn";
 
 const Routes: React.FC = () => {
-  const isSignedIn = true;
+  const isSignedIn = false;
 
   return isSignedIn ? <SignedInNavigator /> : <SignInNavigator />;
 };
