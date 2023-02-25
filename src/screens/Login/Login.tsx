@@ -31,7 +31,9 @@ export default function Login() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Login</Text>
+      <View style={styles.areaTitle}>
+        <Text style={styles.title}>Desafio Hand Talk</Text>
+      </View>
 
       <View>
         <Controller
