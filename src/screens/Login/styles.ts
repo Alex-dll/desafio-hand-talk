@@ -4,6 +4,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     margin: 24,
+    backgroundColor: "#fafafa",
   },
 
   title: {
@@ -21,6 +22,10 @@ const styles = StyleSheet.create({
     height: 200,
     resizeMode: "contain",
     alignSelf: "center",
+  },
+
+  areaButtonConfirm: {
+    marginTop: 20,
   },
 });
 
