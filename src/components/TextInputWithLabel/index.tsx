@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text, TextInput, TextInputProps } from "react-native";
 
-interface ITextInputProps extends TextInputProps {
+type ITextInputProps = {
   label: string;
-}
+} & TextInputProps;
 
 export default function TextInputWithLabel({
   label,

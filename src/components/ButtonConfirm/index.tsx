@@ -1,18 +1,14 @@
 import React from "react";
-import { View, Text, TextInput, TextInputProps } from "react-native";
+import { Text, TouchableOpacity, TouchableOpacityProps } from "react-native";
 
-interface ITextInputProps extends TextInputProps {
-  label: string;
-}
+type IButtonProps = {
+  children: string;
+} & TouchableOpacityProps;
 
-export default function TextInputWithLabel({
-  label,
-  ...rest
-}: ITextInputProps) {
+export default function ButtonConfirm({ children, ...rest }: IButtonProps) {
   return (
-    <View>
-      <Text>{label}</Text>
-      <TextInput {...rest} />
-    </View>
+    <TouchableOpacity {...rest}>
+      <Text>{children}</Text>
+    </TouchableOpacity>
   );
 }
