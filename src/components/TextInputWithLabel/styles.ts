@@ -19,14 +19,14 @@ const styles = StyleSheet.create({
   label: {
     color: "#333",
     paddingBottom: 10,
-    fontSize: 13,
+    fontSize: 15,
     fontWeight: "600",
   },
   wrongIndicator: {
     color: "red",
     paddingTop: 4,
     paddingBottom: 10,
-    fontSize: 13,
+    fontSize: 15,
     fontWeight: "600",
   },
   onFocusInput: {
