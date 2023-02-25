@@ -6,6 +6,8 @@ import {
 } from "firebase/auth";
 import { create } from "zustand";
 
+import { auth } from "../../configs/firebase";
+
 type useAuthStoreProps = {
   auth: Auth;
   signIn: (email: string, password: string) => Promise<void>;
@@ -15,7 +17,6 @@ type useAuthStoreProps = {
 export const useAuthStore = create<useAuthStoreProps>((set) => ({
   auth: null,
   signIn: async (email: string, password: string) => {
-    const auth = getAuth();
     try {
       await signInWithEmailAndPassword(auth, email, password);
       set({ auth });
@@ -24,7 +25,6 @@ export const useAuthStore = create<useAuthStoreProps>((set) => ({
     }
   },
   SignOut: async () => {
-    const auth = getAuth();
     try {
       await signOut(auth);
       set({ auth: null });
