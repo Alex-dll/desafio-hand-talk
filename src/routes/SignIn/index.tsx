@@ -1,6 +1,8 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 
+import { Login } from "../../screens/Login";
+
 const Stack = createNativeStackNavigator<SignInStackParamsList>();
 
 const SignInNavigator = () => {
@@ -9,7 +11,7 @@ const SignInNavigator = () => {
       screenOptions={{ header: () => null }}
       initialRouteName="login"
     >
-      <Stack.Screen name="login" component={() => null} />
+      <Stack.Screen name="login" component={Login} />
     </Stack.Navigator>
   );
 };
