@@ -7,9 +7,8 @@ const SignInNavigator = () => {
   return (
     <Stack.Navigator
       screenOptions={{ header: () => null }}
-      initialRouteName="onBoarding"
+      initialRouteName="login"
     >
-      <Stack.Screen name="onBoarding" component={() => null} />
       <Stack.Screen name="login" component={() => null} />
     </Stack.Navigator>
   );
