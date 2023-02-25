@@ -1,12 +1,13 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { View, SafeAreaView, Image } from "react-native";
+import { View, SafeAreaView, Image, StatusBar } from "react-native";
 
 import styles from "./styles";
 import { schemaLogin } from "./validation";
 import ButtonConfirm from "../../components/ButtonConfirm";
 import TextInputWithLabel from "../../components/TextInputWithLabel";
+import colors from "../../constants/colors";
 import { useAuthStore } from "../../store/authStore";
 
 export default function Login() {
@@ -18,7 +19,7 @@ export default function Login() {
     control,
     handleSubmit,
     setValue,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm({
     resolver: yupResolver(schemaLogin),
     defaultValues: {
@@ -36,6 +37,8 @@ export default function Login() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar backgroundColor={colors.main["orange"]} />
+
       <View style={styles.areaTitle} />
       <Image
         source={require("../../assets/handtalklogo/image.png")}
