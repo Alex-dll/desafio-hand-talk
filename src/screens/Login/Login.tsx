@@ -1,7 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import { View, Text, SafeAreaView, Alert, Image } from "react-native";
+import { View, Text, SafeAreaView, Image } from "react-native";
 
 import styles from "./styles";
 import { schemaLogin } from "./validation";
@@ -12,7 +12,13 @@ import { useAuthStore } from "../../store/authStore";
 export default function Login() {
   const signIn = useAuthStore((state) => state.signIn);
 
-  const { control, handleSubmit, setValue } = useForm({
+  const {
+    control,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm({
+    mode: "all",
     resolver: yupResolver(schemaLogin),
     defaultValues: {
       email: "",
@@ -21,29 +27,14 @@ export default function Login() {
   });
 
   const onSubmit = async () => {
-    await handleSubmit(
-      ({ email, password }) => {
-        signIn(email, password);
-      },
-      () =>
-        Alert.alert(
-          "Verifique os seus campos",
-          "Preencha todos os campos corretamente",
-          [
-            {
-              text: "Ok",
-            },
-          ]
-        )
-    )();
+    await handleSubmit(({ email, password }) => {
+      signIn(email, password);
+    })();
   };
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.areaTitle}>
-        <Text style={styles.title}>Desafio Hand Talk</Text>
-      </View>
-
+      <View style={styles.areaTitle} />
       <Image
         source={require("../../assets/handtalklogo/image.png")}
         style={styles.image}
@@ -66,6 +57,7 @@ export default function Login() {
               autoComplete="email"
               autoCorrect={false}
               keyboardType="email-address"
+              wrongMessage={errors?.email?.message}
             />
           )}
         />
@@ -86,11 +78,14 @@ export default function Login() {
               autoCapitalize="none"
               autoComplete="password"
               autoCorrect={false}
+              wrongMessage={errors?.password?.message}
             />
           )}
         />
 
-        <ButtonConfirm onPress={onSubmit}>Entrar</ButtonConfirm>
+        <View style={styles.areaButtonConfirm}>
+          <ButtonConfirm onPress={onSubmit}>Entrar</ButtonConfirm>
+        </View>
       </View>
     </SafeAreaView>
   );
