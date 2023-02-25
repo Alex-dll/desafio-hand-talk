@@ -1,9 +1,4 @@
-import {
-  Auth,
-  getAuth,
-  signInWithEmailAndPassword,
-  signOut,
-} from "firebase/auth";
+import { Auth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { create } from "zustand";
 
 import { auth } from "../../configs/firebase";
