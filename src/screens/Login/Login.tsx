@@ -1,5 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import React from "react";
+import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { View, SafeAreaView, Image } from "react-native";
 
@@ -10,13 +10,15 @@ import TextInputWithLabel from "../../components/TextInputWithLabel";
 import { useAuthStore } from "../../store/authStore";
 
 export default function Login() {
+  const [isLoading, setIsLoading] = useState(false);
+
   const signIn = useAuthStore((state) => state.signIn);
 
   const {
     control,
     handleSubmit,
     setValue,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm({
     resolver: yupResolver(schemaLogin),
     defaultValues: {
@@ -27,7 +29,8 @@ export default function Login() {
 
   const onSubmit = async () => {
     await handleSubmit(({ email, password }) => {
-      signIn(email, password);
+      setIsLoading(true);
+      signIn(email, password).finally(() => setIsLoading(false));
     })();
   };
 
@@ -83,7 +86,13 @@ export default function Login() {
         />
 
         <View style={styles.areaButtonConfirm}>
-          <ButtonConfirm onPress={onSubmit}>Entrar</ButtonConfirm>
+          <ButtonConfirm
+            onPress={onSubmit}
+            disabled={isLoading}
+            isLoading={isLoading}
+          >
+            Entrar
+          </ButtonConfirm>
         </View>
       </View>
     </SafeAreaView>
