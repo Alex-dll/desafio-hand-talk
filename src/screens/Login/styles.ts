@@ -15,6 +15,13 @@ const styles = StyleSheet.create({
   areaTitle: {
     marginBottom: 24,
   },
+
+  image: {
+    width: 200,
+    height: 200,
+    resizeMode: "contain",
+    alignSelf: "center",
+  },
 });
 
 export default styles;

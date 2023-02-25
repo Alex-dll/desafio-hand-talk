@@ -1,14 +1,17 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import { View, Text, SafeAreaView, Alert } from "react-native";
+import { View, Text, SafeAreaView, Alert, Image } from "react-native";
 
 import styles from "./styles";
 import { schemaLogin } from "./validation";
 import ButtonConfirm from "../../components/ButtonConfirm";
 import TextInputWithLabel from "../../components/TextInputWithLabel";
+import { useAuthStore } from "../../store/authStore";
 
 export default function Login() {
+  const signIn = useAuthStore((state) => state.signIn);
+
   const { control, handleSubmit, setValue } = useForm({
     resolver: yupResolver(schemaLogin),
     defaultValues: {
@@ -20,11 +23,17 @@ export default function Login() {
   const onSubmit = async () => {
     await handleSubmit(
       ({ email, password }) => {
-        console.log(email, password);
+        signIn(email, password);
       },
       () =>
         Alert.alert(
-          "Erro ao realizar login, verifique seus dados ou tente novamente mais tarde"
+          "Verifique os seus campos",
+          "Preencha todos os campos corretamente",
+          [
+            {
+              text: "Ok",
+            },
+          ]
         )
     )();
   };
@@ -34,6 +43,11 @@ export default function Login() {
       <View style={styles.areaTitle}>
         <Text style={styles.title}>Desafio Hand Talk</Text>
       </View>
+
+      <Image
+        source={require("../../assets/handtalklogo/image.png")}
+        style={styles.image}
+      />
 
       <View>
         <Controller
