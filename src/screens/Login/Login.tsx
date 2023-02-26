@@ -1,7 +1,14 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { View, SafeAreaView, Image, StatusBar } from "react-native";
+import {
+  View,
+  SafeAreaView,
+  Image,
+  StatusBar,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
 
 import styles from "./styles";
 import { schemaLogin } from "./validation";
@@ -36,68 +43,73 @@ export default function Login() {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar backgroundColor={colors.main["orange"]} />
+    <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
+      <SafeAreaView style={styles.container}>
+        <StatusBar backgroundColor={colors.main["orange"]} />
 
-      <View style={styles.areaTitle} />
-      <Image
-        source={require("../../assets/handtalklogo/image.png")}
-        style={styles.image}
-      />
-
-      <View>
-        <Controller
-          control={control}
-          name="email"
-          render={({ field: { onBlur, onChange, value, ref } }) => (
-            <TextInputWithLabel
-              ref={ref}
-              label="Email:"
-              placeholder="joaodasilva@examplo.com"
-              onChangeText={(text) => setValue("email", text)}
-              onChange={onChange}
-              onBlur={onBlur}
-              value={value}
-              autoCapitalize="none"
-              autoComplete="email"
-              autoCorrect={false}
-              keyboardType="email-address"
-              wrongMessage={errors?.email?.message}
-            />
-          )}
+        <View style={styles.areaTitle} />
+        <Image
+          source={require("../../assets/handtalklogo/image.png")}
+          style={styles.image}
         />
 
-        <Controller
-          control={control}
-          name="password"
-          render={({ field: { onBlur, onChange, value, ref } }) => (
-            <TextInputWithLabel
-              ref={ref}
-              onBlur={onBlur}
-              value={value}
-              onChange={onChange}
-              onChangeText={(text) => setValue("password", text)}
-              label="Senha:"
-              placeholder="******"
-              secureTextEntry
-              autoCapitalize="none"
-              autoComplete="password"
-              autoCorrect={false}
-              wrongMessage={errors?.password?.message}
-            />
-          )}
-        />
+        <View>
+          <Controller
+            control={control}
+            name="email"
+            render={({ field: { onBlur, onChange, value, ref } }) => (
+              <TextInputWithLabel
+                ref={ref}
+                label="Email:"
+                placeholder="joaodasilva@examplo.com"
+                onChangeText={(text) => setValue("email", text)}
+                onChange={onChange}
+                onBlur={onBlur}
+                value={value}
+                autoCapitalize="none"
+                autoComplete="email"
+                autoCorrect={false}
+                keyboardType="email-address"
+                wrongMessage={errors?.email?.message}
+              />
+            )}
+          />
 
-        <View style={styles.areaButtonConfirm}>
-          <ButtonConfirm
-            onPress={onSubmit}
-            disabled={isLoading}
-            isLoading={isLoading}
-          >
-            Entrar
-          </ButtonConfirm>
+          <Controller
+            control={control}
+            name="password"
+            render={({ field: { onBlur, onChange, value, ref } }) => (
+              <TextInputWithLabel
+                ref={ref}
+                onBlur={onBlur}
+                value={value}
+                onChange={onChange}
+                onChangeText={(text) => setValue("password", text)}
+                label="Senha:"
+                placeholder="******"
+                secureTextEntry
+                autoCapitalize="none"
+                autoComplete="password"
+                autoCorrect={false}
+                wrongMessage={errors?.password?.message}
+              />
+            )}
+          />
+
+          <View style={styles.areaButtonConfirm}>
+            <ButtonConfirm
+              onPress={onSubmit}
+              disabled={isLoading}
+              isLoading={isLoading}
+            >
+              Entrar
+            </ButtonConfirm>
+          </View>
         </View>
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </KeyboardAvoidingView>
   );
 }
