@@ -88,6 +88,7 @@ export default function Home() {
                   onChange={onChange}
                   onChangeText={(text) => setValue("cube", text)}
                   placeholder="Cor do Cubo"
+                  accessibilityLabel="Cor do cubo"
                 />
               )}
             />
@@ -103,6 +104,7 @@ export default function Home() {
                   onChange={onChange}
                   onChangeText={(text) => setValue("cone", text)}
                   placeholder="Cor do Cone"
+                  accessibilityLabel="Cor do cone"
                 />
               )}
             />
@@ -118,6 +120,7 @@ export default function Home() {
                   onChange={onChange}
                   onChangeText={(text) => setValue("dodecahedron", text)}
                   placeholder="Cor do Dode..."
+                  accessibilityLabel="Cor do dodecaedro"
                 />
               )}
             />
@@ -126,6 +129,8 @@ export default function Home() {
             onPress={onSubmit}
             disabled={isLoading}
             isLoading={isLoading}
+            accessibilityLabel="Aplicar"
+            accessibilityHint="Botão para aplicar as cores dos objetos"
           >
             Aplicar
           </ButtonConfirm>
