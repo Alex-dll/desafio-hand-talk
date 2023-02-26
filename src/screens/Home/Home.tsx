@@ -117,7 +117,7 @@ export default function Home() {
                   value={value}
                   onChange={onChange}
                   onChangeText={(text) => setValue("dodecahedron", text)}
-                  placeholder="Cor do Dodecaedro"
+                  placeholder="Cor do Dode..."
                 />
               )}
             />
