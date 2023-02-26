@@ -1,4 +1,5 @@
 import { Auth, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { Alert } from "react-native";
 import { create } from "zustand";
 
 import { auth } from "../../configs/firebase";
@@ -16,7 +17,7 @@ export const useAuthStore = create<useAuthStoreProps>((set) => ({
       await signInWithEmailAndPassword(auth, email, password);
       set({ auth });
     } catch (error) {
-      console.log(error);
+      Alert.alert("Erro", error.message);
     }
   },
   SignOut: async () => {
