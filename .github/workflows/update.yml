@@ -6,7 +6,6 @@ jobs:
     name: EAS Update
     runs-on: ubuntu-latest
     steps:
-    #SQIb0CZoUXmtzwqjItFqgt0bvt36iBDbGpckvImS
       - name: Check for EXPO_TOKEN
         run: |
           if [ -z "${{ secrets.EXPO_TOKEN }}" ]; then

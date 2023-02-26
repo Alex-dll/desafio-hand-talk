@@ -6,8 +6,7 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web",
-    "easUpdatePreview": "eas update --branch preview --message 'updating the app'"
+    "web": "expo start --web"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.11",
