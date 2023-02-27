@@ -17,12 +17,19 @@ A aplicação deverá:
 6. Ao aplicar, as cores deverão ser salvas no banco de dados atrelado ao identificador do usuário (Use Firestore ou Realtime Database).
 7. Sempre que o usuário abrir o aplicativo, caso existam cores diferentes atreladas a conta dele, elas deverão ser aplicadas aos respectivos objetos.
 
+
+## Apresentação
+
 <div align="center">
-
-**Imagem Aqui**
-
+  <img
+    width="400"
+    src="https://github.com/Alex-dll/desafio-hand-talk/blob/docs/readme/assets/github/login.PNG" 
+    alt="Login" />
+  <img
+    width="400"
+    src="https://github.com/Alex-dll/desafio-hand-talk/blob/docs/readme/assets/github/home.PNG" 
+    alt="Home" />
 </div>
-
 
 
 ## Pré-requisitos para iniciar o projeto
@@ -66,7 +73,7 @@ Agora basta ler o QRCode usando um dispositivo fisico ( Recomendo por conta da r
 ```plaintext
 .
 ├─ .github       # Contem o fluxo de CI para o EXPO EAS.
-├─ assets       # Contem assets. e.q: icons, splashs, images etc...
+├─ assets        # Contem assets. e.q: icons, splashs, images etc...
 .
 ├─ src              # Arquivos em geral do projeto
 │   ├─ @types       # Contem os tipos e interfaces de implementações globais
@@ -82,9 +89,9 @@ Agora basta ler o QRCode usando um dispositivo fisico ( Recomendo por conta da r
 │   ├─ utils        # Contem funções de utilitarias e.q: Validadores...
 .
 .
-├─ app.json         # Contem as definições do APP
-├─ app.json         # Contem as inicializações do APP
-├─ eas.json         # Contem as definições deploy do APP
+├─ app.json       # Contem as definições do APP
+├─ app.json       # Contem as inicializações do APP
+├─ eas.json       # Contem as definições deploy do APP
 .
 .
 └─ README.md
