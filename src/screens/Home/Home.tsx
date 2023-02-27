@@ -32,12 +32,7 @@ export default function Home() {
     state.setColors,
   ]);
 
-  const {
-    control,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm({
+  const { control, handleSubmit, setValue } = useForm({
     resolver: yupResolver(schemaColors),
     mode: "onSubmit",
     defaultValues: {
@@ -48,7 +43,6 @@ export default function Home() {
   });
 
   const onSubmit = async () => {
-    console.log(errors);
     await handleSubmit(
       async ({ cube, cone, dodecahedron }) => {
         setIsLoading(true);
