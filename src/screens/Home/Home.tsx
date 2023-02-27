@@ -19,6 +19,7 @@ import ButtonConfirm from "../../components/ButtonConfirm";
 import Cone from "../../components/Cone";
 import Dodecahedron from "../../components/Dodecahedron";
 import InputColor from "../../components/InputColor";
+import { useAuthStore } from "../../store/authStore";
 import { useColorsStore } from "../../store/colorsStore";
 
 export default function Home() {
@@ -32,13 +33,17 @@ export default function Home() {
     state.setColors,
   ]);
 
-  const { control, handleSubmit, setValue } = useForm({
+  const user = useAuthStore((state) => state.auth);
+
+  const userId = user.currentUser.uid;
+
+  const { control, handleSubmit, setValue, reset } = useForm({
     resolver: yupResolver(schemaColors),
-    mode: "onSubmit",
+    mode: "all",
     defaultValues: {
-      cube: colors.cube,
-      cone: colors.cone,
-      dodecahedron: colors.dodecahedron,
+      cube: "",
+      cone: "",
+      dodecahedron: "",
     },
   });
 
@@ -46,7 +51,8 @@ export default function Home() {
     await handleSubmit(
       async ({ cube, cone, dodecahedron }) => {
         setIsLoading(true);
-        await setColors({ cube, cone, dodecahedron });
+        await setColors({ userId, cube, cone, dodecahedron });
+        reset();
         setIsLoading(false);
       },
       () => Alert.alert("Erro", "Verifique a cor que esta tentando alterar")
