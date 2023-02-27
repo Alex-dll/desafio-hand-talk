@@ -23,11 +23,11 @@ A aplicação deverá:
 <div align="center">
   <img
     width="400"
-    src="https://github.com/Alex-dll/desafio-hand-talk/blob/docs/readme/assets/github/login.PNG" 
+    src="https://github.com/Alex-dll/desafio-hand-talk/blob/main/assets/github/login.PNG?raw=true" 
     alt="Login" />
   <img
     width="400"
-    src="https://github.com/Alex-dll/desafio-hand-talk/blob/docs/readme/assets/github/home.PNG" 
+    src="https://github.com/Alex-dll/desafio-hand-talk/blob/main/assets/github/home.PNG?raw=true" 
     alt="Home" />
 </div>
 
@@ -36,11 +36,11 @@ A aplicação deverá:
 <div align="center">
   <img
     width="400"
-    src="https://github.com/Alex-dll/desafio-hand-talk/blob/docs/readme/assets/github/preview-ios.png?raw=true" 
+    src="https://github.com/Alex-dll/desafio-hand-talk/blob/main/assets/github/preview-ios.png?raw=true" 
     alt="IOS" />
   <img
     width="400"
-    src="https://github.com/Alex-dll/desafio-hand-talk/blob/docs/readme/assets/github/preview-android.png?raw=true" 
+    src="https://github.com/Alex-dll/desafio-hand-talk/blob/main/assets/github/preview-android.png?raw=true" 
     alt="Android" />
 </div>
 
