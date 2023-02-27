@@ -1,13 +1,9 @@
 export function verifyIfColorIsValid(str: string): boolean {
-  str = str.trim();
+  str = str?.trim();
 
   const regexToValidHexColor = /^#(?:[0-9a-fA-F]{3}){1,2}$/;
 
-  if (!str) {
-    return false;
-  }
-
-  if (str.includes("#")) {
+  if (str?.includes("#")) {
     return regexToValidHexColor.test(str);
   }
 
