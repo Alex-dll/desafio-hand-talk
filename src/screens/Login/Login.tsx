@@ -48,7 +48,10 @@ export default function Login() {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <SafeAreaView style={styles.container}>
-        <StatusBar backgroundColor={colors.main["orange"]} />
+        <StatusBar
+          barStyle="dark-content"
+          backgroundColor={colors.main["orange"]}
+        />
 
         <View style={styles.areaTitle} />
         <Image
