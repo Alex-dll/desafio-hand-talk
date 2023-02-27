@@ -54,6 +54,9 @@ export default function Login() {
         <Image
           source={require("../../assets/handtalklogo/image.png")}
           style={styles.image}
+          accessible
+          accessibilityLabel="Logo da HandTalk"
+          accessibilityHint="Logo da HandTalk para o aplicativo"
         />
 
         <View>
@@ -74,6 +77,7 @@ export default function Login() {
                 autoCorrect={false}
                 keyboardType="email-address"
                 wrongMessage={errors?.email?.message}
+                accessibilityLabel="Digite seu email"
               />
             )}
           />
@@ -95,12 +99,16 @@ export default function Login() {
                 autoComplete="password"
                 autoCorrect={false}
                 wrongMessage={errors?.password?.message}
+                accessibilityLabel="Digite sua senha"
               />
             )}
           />
 
-          <View style={styles.areaButtonConfirm}>
+          <View style={styles.areaButtonConfirm} accessible={false}>
             <ButtonConfirm
+              accessible
+              accessibilityLabel="Entrar"
+              accessibilityHint="Botão para entrar"
               onPress={onSubmit}
               disabled={isLoading}
               isLoading={isLoading}
