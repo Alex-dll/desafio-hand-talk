@@ -31,6 +31,18 @@ A aplicação deverá:
     alt="Home" />
 </div>
 
+### Voce pode testar o APP usando o QRCode do seu respectivo SO no Aplicativo Expo ou Expo Go
+
+<div align="center">
+  <img
+    width="400"
+    src="https://github.com/Alex-dll/desafio-hand-talk/blob/docs/readme/assets/github/preview-ios.png?raw=true" 
+    alt="IOS" />
+  <img
+    width="400"
+    src="https://github.com/Alex-dll/desafio-hand-talk/blob/docs/readme/assets/github/preview-android.png?raw=true" 
+    alt="Android" />
+</div>
 
 ## Pré-requisitos para iniciar o projeto
 Caso não tenha o seu ambiente de desenvolvimento em react native configurado verifique junto da [Documentação Oficial do React Native ](https://reactnative.dev/docs/environment-setup) e a [Documentação Oficial do Expo](https://docs.expo.dev/get-started/installation/) em como realizar a configuração do seu ambiente
