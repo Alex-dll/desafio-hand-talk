@@ -6,12 +6,12 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
   },
   wrapper: {
-    paddingHorizontal: 5,
+    paddingHorizontal: 24,
   },
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     marginBottom: 10,
   },
 });

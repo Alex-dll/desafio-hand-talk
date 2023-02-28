@@ -8,25 +8,17 @@ import { View, Text, TextInput, TextInputProps } from "react-native";
 
 import styles from "./styles";
 
-export type InputValueRef = {
-  value: string;
-  focus?: () => void;
-  blur: () => void;
-  setValue?: (value: string) => void;
-} & TextInputProps;
+import type { InputValueRef } from "~/types/inputText";
 
-type ITextInputProps = {
+type Props = {
   label: string;
   wrongMessage?: string;
 } & TextInputProps;
 
 const TextInputWithLabel: React.ForwardRefRenderFunction<
   InputValueRef,
-  ITextInputProps
-> = (
-  { label, onChangeText, wrongMessage, onBlur, ...rest }: ITextInputProps,
-  ref
-) => {
+  Props
+> = ({ label, onChangeText, wrongMessage, onBlur, ...rest }: Props, ref) => {
   const internalRef = useRef<TextInput>(null);
   const [text, setText] = useState("");
 
