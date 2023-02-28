@@ -1,9 +1,9 @@
 import { Alert } from "react-native";
 import { create } from "zustand";
 
-import { getUserColorsFirebaseData } from "../../functions/getUserColorsFirebaseData";
-import { setColorsToFirebaseData } from "../../functions/setColorsToFirebaseData";
-import type { ColorsProps } from "../../types/colors";
+import { getUserColorsFirebaseData } from "~/functions/getUserColorsFirebaseData";
+import { setColorsToFirebaseData } from "~/functions/setColorsToFirebaseData";
+import type { ColorsProps } from "~/types/colors";
 
 type useColorsStoreProps = {
   colors: ColorsProps;

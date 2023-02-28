@@ -2,7 +2,7 @@ import { Auth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { Alert } from "react-native";
 import { create } from "zustand";
 
-import { auth } from "../../configs/firebase";
+import { auth } from "~/configs/firebase";
 
 type useAuthStoreProps = {
   auth: Auth;

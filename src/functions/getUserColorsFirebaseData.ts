@@ -1,7 +1,7 @@
 import { ref, get } from "firebase/database";
 
-import { database } from "../configs/firebase";
-import type { getColorToUserReturn } from "../types/colors";
+import { database } from "~/configs/firebase";
+import type { getColorToUserReturn } from "~/types/colors";
 
 type getColorToUser = {
   userId: string;
