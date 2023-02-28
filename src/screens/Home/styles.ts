@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
   },
   wrapper: {
-    paddingHorizontal: 5,
+    paddingHorizontal: 24,
   },
   inputContainer: {
     flexDirection: "row",
