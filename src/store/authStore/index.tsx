@@ -7,7 +7,7 @@ import { auth } from "~/configs/firebase";
 type useAuthStoreProps = {
   auth: Auth;
   signIn: (email: string, password: string) => Promise<void>;
-  SignOut: () => Promise<void>;
+  signOut: () => Promise<void>;
 };
 
 export const useAuthStore = create<useAuthStoreProps>((set) => ({
@@ -20,7 +20,7 @@ export const useAuthStore = create<useAuthStoreProps>((set) => ({
       Alert.alert("Erro", error.message);
     }
   },
-  SignOut: async () => {
+  signOut: async () => {
     try {
       await signOut(auth);
       set({ auth: null });
