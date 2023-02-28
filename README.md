@@ -95,14 +95,15 @@ Agora basta ler o QRCode usando um dispositivo fisico ( Recomendo por conta da r
 │   ├─ constants    # Arquivos de constantes. e.q: Cores...
 │   ├─ functions    # Funções de conexão com o Realtime Database
 │   ├─ routes       # Definição de rotas do APP
+│   ├─ hooks        # Custom hooks
 │   ├─ screens      # As telas do APP
 │   ├─ store        # Contem nos nossos estados globais e suas funções de set
 │   ├─ types        # Tipos genericos
 │   ├─ utils        # Contem funções de utilitarias e.q: Validadores...
 .
 .
+├─ App.tsx        # Contem as inicializações do APP
 ├─ app.json       # Contem as definições do APP
-├─ app.json       # Contem as inicializações do APP
 ├─ eas.json       # Contem as definições deploy do APP
 .
 .
