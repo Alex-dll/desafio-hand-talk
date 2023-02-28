@@ -4,11 +4,11 @@ import colors from "~/constants/colors";
 
 const styles = StyleSheet.create({
   textInputArea: {
-    paddingVertical: 20,
+    paddingVertical: 15,
   },
   textInput: {
     color: "#333",
-    fontSize: 15,
+    fontSize: 16,
     borderColor: "#aaa",
     borderWidth: 2,
     paddingVertical: 10,
@@ -19,15 +19,17 @@ const styles = StyleSheet.create({
   label: {
     color: "#333",
     paddingBottom: 10,
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: "600",
+    marginLeft: 2,
   },
   wrongIndicator: {
     color: "red",
     paddingTop: 4,
     paddingBottom: 10,
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: "600",
+    marginLeft: 2,
   },
   onFocusInput: {
     borderColor: colors.main["orange"],
