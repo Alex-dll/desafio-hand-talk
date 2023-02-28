@@ -1,10 +1,21 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
+    "skipLibCheck": true,
+    "types": [
+      "react-native",
+    ],
+    "baseUrl": ".",
     "paths": {
       "typeRoots": [
         "./src/@types"
       ],
-    }
+      "~/*": [
+        "src/*"
+      ],
+    },
+    "rootDirs": [
+      "src"
+    ]
   },
 }
