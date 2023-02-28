@@ -8,16 +8,12 @@ import {
 
 import styles from "./styles";
 
-type IButtonProps = {
+type Prop = {
   children: string;
   isLoading?: boolean;
 } & TouchableOpacityProps;
 
-export default function ButtonConfirm({
-  children,
-  isLoading,
-  ...rest
-}: IButtonProps) {
+export default function ButtonConfirm({ children, isLoading, ...rest }: Prop) {
   return (
     <TouchableOpacity style={styles.button} {...rest}>
       {isLoading ? (
