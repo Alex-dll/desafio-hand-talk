@@ -16,10 +16,13 @@ import { schemaLogin } from "./validation";
 import ButtonConfirm from "~/components/ButtonConfirm";
 import TextInputWithLabel from "~/components/TextInputWithLabel";
 import colors from "~/constants/colors";
+import useShowKeyboard from "~/hooks/useShowKeyboard";
 import { useAuthStore } from "~/store/authStore";
 
 export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
+
+  const { showKeyboard } = useShowKeyboard();
 
   const signIn = useAuthStore((state) => state.signIn);
 
@@ -27,6 +30,7 @@ export default function Login() {
     control,
     handleSubmit,
     setValue,
+    setFocus,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schemaLogin),
@@ -48,20 +52,23 @@ export default function Login() {
       style={{ flex: 1 }}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor={colors.main["orange"]}
+      />
       <SafeAreaView style={styles.container}>
-        <StatusBar
-          barStyle="dark-content"
-          backgroundColor={colors.main["orange"]}
-        />
-
         <View style={styles.areaTitle} />
-        <Image
-          source={require("~/assets/handtalklogo/image.png")}
-          style={styles.image}
-          accessible
-          accessibilityLabel="Logo da HandTalk"
-          accessibilityHint="Logo da HandTalk para o aplicativo"
-        />
+
+        {!showKeyboard && (
+          <Image
+            source={require("~/assets/handtalklogo/image.png")}
+            style={styles.image}
+            accessible
+            accessibilityLabel="Logo da HandTalk"
+            accessibilityHint="Logo da HandTalk para o aplicativo"
+            accessibilityRole="image"
+          />
+        )}
 
         <View>
           <Controller
@@ -81,7 +88,12 @@ export default function Login() {
                 autoCorrect={false}
                 keyboardType="email-address"
                 wrongMessage={errors?.email?.message}
+                accessible
                 accessibilityLabel="Digite seu email"
+                accessibilityHint="Input para digitar o seu email"
+                accessibilityRole="keyboardkey"
+                returnKeyType="next"
+                onEndEditing={() => setFocus("password")}
               />
             )}
           />
@@ -104,22 +116,23 @@ export default function Login() {
                 autoCorrect={false}
                 wrongMessage={errors?.password?.message}
                 accessibilityLabel="Digite sua senha"
+                returnKeyType="go"
+                onEndEditing={onSubmit}
               />
             )}
           />
-
-          <View style={styles.areaButtonConfirm} accessible={false}>
-            <ButtonConfirm
-              accessible
-              accessibilityLabel="Entrar"
-              accessibilityHint="Botão para entrar"
-              onPress={onSubmit}
-              disabled={isLoading}
-              isLoading={isLoading}
-            >
-              Entrar
-            </ButtonConfirm>
-          </View>
+        </View>
+        <View style={styles.areaButtonConfirm} accessible={false}>
+          <ButtonConfirm
+            accessible
+            accessibilityLabel="Entrar"
+            accessibilityHint="Botão para entrar"
+            onPress={onSubmit}
+            disabled={isLoading}
+            isLoading={isLoading}
+          >
+            Entrar
+          </ButtonConfirm>
         </View>
       </SafeAreaView>
     </KeyboardAvoidingView>
