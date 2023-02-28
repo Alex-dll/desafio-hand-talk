@@ -1,7 +1,7 @@
 import { ref, set } from "firebase/database";
 
-import { database } from "../configs/firebase";
-import type { ColorsProps } from "../types/colors";
+import { database } from "~/configs/firebase";
+import type { ColorsProps } from "~/types/colors";
 
 export async function setColorsToFirebaseData({
   userId,

@@ -12,10 +12,11 @@ import {
 
 import styles from "./styles";
 import { schemaLogin } from "./validation";
-import ButtonConfirm from "../../components/ButtonConfirm";
-import TextInputWithLabel from "../../components/TextInputWithLabel";
-import colors from "../../constants/colors";
-import { useAuthStore } from "../../store/authStore";
+
+import ButtonConfirm from "~/components/ButtonConfirm";
+import TextInputWithLabel from "~/components/TextInputWithLabel";
+import colors from "~/constants/colors";
+import { useAuthStore } from "~/store/authStore";
 
 export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
@@ -55,7 +56,7 @@ export default function Login() {
 
         <View style={styles.areaTitle} />
         <Image
-          source={require("../../assets/handtalklogo/image.png")}
+          source={require("~/assets/handtalklogo/image.png")}
           style={styles.image}
           accessible
           accessibilityLabel="Logo da HandTalk"

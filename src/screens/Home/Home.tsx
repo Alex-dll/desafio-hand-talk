@@ -14,13 +14,14 @@ import {
 
 import styles from "./styles";
 import { schemaColors } from "./validation";
-import Box from "../../components/Box";
-import ButtonConfirm from "../../components/ButtonConfirm";
-import Cone from "../../components/Cone";
-import Dodecahedron from "../../components/Dodecahedron";
-import InputColor from "../../components/InputColor";
-import { useAuthStore } from "../../store/authStore";
-import { useColorsStore } from "../../store/colorsStore";
+
+import Box from "~/components/Box";
+import ButtonConfirm from "~/components/ButtonConfirm";
+import Cone from "~/components/Cone";
+import Dodecahedron from "~/components/Dodecahedron";
+import InputColor from "~/components/InputColor";
+import { useAuthStore } from "~/store/authStore";
+import { useColorsStore } from "~/store/colorsStore";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);

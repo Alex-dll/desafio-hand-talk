@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-import { verifyIfColorIsValid } from "../../utils/verifyIfColorIsValid";
+import { verifyIfColorIsValid } from "~/utils/verifyIfColorIsValid";
 
 export const schemaColors = yup.object().shape({
   cube: yup
